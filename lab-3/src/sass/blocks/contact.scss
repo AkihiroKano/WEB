@@ -1,0 +1,174 @@
+@use "../base/variables.scss" as *;
+
+.contact {
+    padding: 0px 20px 80px;
+
+    &__img-tea,
+    &__img-vase-icon {
+        display: none;
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    &__form {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .field {
+        display: block;
+        margin-bottom: 16px;
+
+        &__label {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            margin-bottom: 8px;
+            color: $dark;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 2px;
+            border: 1px solid $ui-disabled;
+            color: $dark;
+            transition: border-color 0.3s ease;
+
+            /* Стили для фокуса и заполненных полей */
+            &:focus,
+            &:not(:placeholder-shown) {
+                border-color: $dark;
+                box-shadow: 0 6px 16px rgba($dark, 0.15);
+            }
+
+            &:invalid {
+                border-color: $ui-error;
+                box-shadow: 0 6px 16px rgba($ui-error, 0.04);
+            }
+        }
+    }
+
+    .checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0 16px;
+
+        a {
+            color: $terms;
+            text-decoration: none;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .contact {
+        &__items {
+            display: grid;
+            grid-template-columns: 6fr 1fr;
+            gap: 40px;
+            padding-left: 40px;
+        }
+
+        &__img-vase-icon {
+            display: block;
+            width: 85px;
+            height: 85px;
+            margin-top: auto;
+        }
+    }
+}
+
+@media (min-width: 1200px) {
+    .contact {
+        &__items {
+            display: grid;
+            grid-template-columns: 3fr 2fr 0.5fr;
+            gap: 80px;
+            padding-left: 0;
+            max-width: 1140px;
+            margin: 0 auto;
+
+            .contact__img-tea {
+                display: block;
+                margin-bottom: auto;
+                grid-column: 1;
+                width: 550px;
+                height: 341.76px;
+            }
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    .contact {
+        &__items {
+            display: grid;
+            grid-template-columns: 2.1fr 1fr 1fr;
+            gap: 40px;
+            max-width: 1365px;
+        }
+
+        &__img-tea {
+            display: block;
+            margin-top: auto;
+            grid-column: 1;
+            width: 573px;
+            height: 356px;
+            grid-row: 1 / span 5;
+        }
+
+        &__form {
+            grid-column: 2 / span 3;
+            grid-row: 1 / span 5;
+            width: 100%;
+            max-width: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        &__img-vase-icon {
+            grid-column: 3;
+            grid-row: 5;
+            margin-left: auto;
+            align-self: end;
+        }
+
+        .field__name {
+            grid-column: 1;
+            grid-row: 1;
+            margin: 0;
+        }
+
+        .field__email {
+            grid-column: 2;
+            grid-row: 1;
+            margin-bottom: 0;
+        }
+
+        .field__question {
+            grid-column: 1;
+            grid-row: 2;
+            margin-bottom: 0;
+        }
+
+        .checkbox {
+            grid-column: 1 / span 2;
+            grid-row: 3;
+            margin: 0;
+        }
+
+        .contact__btn {
+            grid-column: 1 / span 2;
+            grid-row: 4;
+        }
+    }
+}

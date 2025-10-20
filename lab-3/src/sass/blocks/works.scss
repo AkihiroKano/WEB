@@ -1,0 +1,96 @@
+@use "../base/variables.scss" as *;
+
+.works {
+    padding: 0 20px 80px;
+    position: relative;
+
+    &__container {
+        @media (min-width: 1200px) {
+            width: 1180px;
+            margin: 0 auto 0;
+        }
+
+        @media (min-width: 1920px) {
+            width: 1365px;
+            margin: 0 auto 0;
+        }
+    }
+
+    &__slider {
+        width: 100%;
+        position: relative;
+
+        @media (min-width: 1200px) {
+            width: 1034px;
+        }
+
+        @media (min-width: 1920px) {
+            width: 1250px;
+        }
+    }
+}
+
+
+
+.swiper {
+    &-slide {
+        justify-content: center;
+        align-items: center;
+
+        &__image {
+            width: 340px;
+            height: 223px;
+            margin: 0 auto 0;
+            object-fit: cover;
+
+            @media (min-width: 1200px) {
+                width: 400px;
+                height: 265px;
+            }
+        }
+    }
+
+    &-pagination {
+        position: relative !important;
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    &-pagination-bullet {
+        width: 12px !important;
+        height: 12px !important;
+        background: $dark !important;
+        border-radius: 0% !important;
+        transition: all 0.3s ease;
+
+        &-active {
+            background: $ceramic !important;
+        }
+    }
+
+    /* Навигационные стрелки */
+    &-button-prev,
+    &-button-next {
+        --swiper-navigation-size: 40px;
+        --swiper-theme-color: $dark;
+        z-index: 10;
+        border: none;
+        background: transparent;
+
+        display: none !important;
+
+        /* Показываем только на десктопе 1200px+ */
+        @media (min-width: 1200px) {
+            display: inline-block !important;
+            position: absolute !important;
+            --swiper-navigation-size: 70px;
+            
+        }
+    }
+
+    &-button-next {
+        left: 0 !important;
+    }
+}
