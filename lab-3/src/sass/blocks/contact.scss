@@ -20,6 +20,16 @@
         max-width: 300px;
     }
 
+    &__btn {
+        cursor: pointer;
+        transition: background-color 0.5s, color 0.5s;
+
+        &:hover {
+            background-color: $ceramic;
+            color: $light;
+        }
+    }
+
     .field {
         display: block;
         margin-bottom: 16px;
@@ -158,7 +168,7 @@
             margin: 0;
         }
 
-        .contact__btn {
+        &__btn {
             grid-column: 1 / span 2;
             grid-row: 4;
         }

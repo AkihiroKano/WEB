@@ -32,11 +32,13 @@
         text-transform: uppercase;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
+                    
 
         &.active {
             background-color: $ceramic;
             border-color: $ceramic;
             color: white;
+            text-decoration: underline;
         }
 
         &:hover:not(.active) {

@@ -19,11 +19,20 @@
 
 	&__btn {
 		margin: 18px auto 0;
+		transition: background-color 0.5s, color 0.5s;
 
 		a {
 			padding: 14px 59px;
 			color: $dark;
 			text-decoration: none;
+
+			&:hover {
+				color: $light;
+			}
+		}
+
+		&:hover {
+			background-color: $ceramic;
 		}
 	}
 
