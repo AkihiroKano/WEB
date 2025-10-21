@@ -1,10 +1,10 @@
 @use "../base/variables.scss" as *;
 
 .header {
-	padding-top: 50px;
 	display: flex;
 	flex-direction: column;
-	
+	padding-top: 50px;
+
 	&__top {
 		display: flex;
 		justify-content: space-between;
@@ -18,12 +18,12 @@
 
 	&__icons {
 		display: flex;
-
 		gap: 15px;
 
 		a {
 			display: block;
 			color: $dark;
+
 			span {
 				display: block;
 				width: 20px;
@@ -32,13 +32,45 @@
 			}
 		}
 	}
+
+	@media (min-width: 768px) {
+		align-items: center;
+
+		&__top {
+			width: 100%;
+			position: relative;
+			justify-content: center;
+		}
+
+		&__icons {
+			position: absolute;
+			right: 0;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		&__icons {
+			right: 3%;
+		}
+	}
+
+	@media (min-width: 1920px) {
+		&__logo {
+			width: 150px;
+			height: 151px;
+		}
+
+		&__icons {
+			right: 12%;
+		}
+	}
 }
 
 .burger {
 	display: flex;
-	height: 23px;
 	flex-direction: column;
 	row-gap: 10px;
+	height: 23px;
 	padding-right: 35px;
 	cursor: pointer;
 	z-index: 1001;
@@ -50,58 +82,18 @@
 		background-color: $dark;
 		transition: all 0.3s ease;
 	}
-	
-    // Анимация бургера при открытии
-    &--active {
-        span:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 6px);
-        }
-        
-        span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        span:nth-child(3) {
-            transform: rotate(-45deg) translate(9px, -7px);
-        }
-    }
-}
 
-@media (min-width: 768px) {
-    .header {
-		align-items: center;
+	&--active {
+		span:nth-child(1) {
+			transform: rotate(45deg) translate(9px, 6px);
+		}
 
-		&__top {
-			width: 100%;
-			position: relative;
-			justify-content: center;
+		span:nth-child(2) {
+			opacity: 0;
 		}
-        
-        &__icons {
-            position: absolute;
-            right: 0;
-		}
-    }
-}
 
-@media (min-width: 1200px) {
-	.header {
-		&__icons {
-			position: absolute;
-			right: 3%;;
-			
-		}
-	}
-}
-
-@media (min-width: 1920px) {
-	.header {
-		&__logo {
-			width: 150px;
-			height: 151px;
-		}
-		&__icons {
-			right: 12%;
+		span:nth-child(3) {
+			transform: rotate(-45deg) translate(9px, -7px);
 		}
 	}
 }

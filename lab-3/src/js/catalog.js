@@ -1,9 +1,12 @@
+import "../sass/catalog.scss";
+import "./menu.js";
+
 // переменная на наш сервер API
 const API_BASE = "https://ceramic-api.onrender.com";
 
 // формирование html для продукта
 function productToHTML(p) {
-    return html`
+    return `
     <article class="catalog__item">
       <img src="${new URL(p.image, API_BASE)}" alt="${p.title}" loading="lazy">
       <div class="catalog__info">
@@ -22,7 +25,7 @@ async function fetchProducts() {
     return res.json();
 }
 
-async function renderProducts(category = "tea") {
+async function renderProducts(category) {
     const grid = document.querySelector(".catalog__grid");
     if (!grid) {
         return console.warn("No .catalog__grid found");
@@ -64,3 +67,58 @@ document.addEventListener("DOMContentLoaded", () => {
     setupTabs();
     renderProducts("tea");
 });
+
+
+
+// // ------------------ Alternative Implementation with Query Parameters ------------------
+// async function fetchProducts(category = "tea") {
+//     const url = `${API_BASE}/api/products?category=${category}`;
+//     const res = await fetch(url);
+
+//     if (!res.ok) {
+//         throw new Error(`Failed to fetch: ${res.status}`);
+//     }
+//     return res.json();
+// }
+
+// async function renderProducts(category = "tea") {
+//     const grid = document.querySelector(".catalog__grid");
+//     if (!grid) {
+//         return console.warn("No .catalog__grid found");
+//     }
+
+//     grid.innerHTML = `<div class="loading">Loading…</div>`;
+
+//     try {
+//         const shown = await fetchProducts(category);
+
+//         if (shown.length === 0) {
+//             grid.innerHTML = `<div class="info">No products found for this category.</div>`;
+//         } else {
+//             grid.innerHTML = shown.map(productToHTML).join("");
+//         }
+//     } catch (err) {
+//         console.error(err);
+//         grid.innerHTML = `<div class="error">Failed to load products.</div>`;
+//     }
+// }
+
+// function setupTabs() {
+//     const buttons = document.querySelectorAll(".catalog__filter");
+//     if (!buttons.length) return;
+
+//     buttons.forEach((btn) =>
+//         btn.addEventListener("click", async () => {
+//             buttons.forEach((b) => b.classList.remove("active"));
+//             btn.classList.add("active");
+
+//             const category = btn.dataset.category;
+//             await renderProducts(category);
+//         })
+//     );
+// }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     setupTabs();
+//     renderProducts("tea");
+// });

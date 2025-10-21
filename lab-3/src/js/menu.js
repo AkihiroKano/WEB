@@ -11,13 +11,11 @@ class MobileMenu {
     init() {
         this.burger.addEventListener('click', () => this.toggleMenu());
 
-        // Закрытие меню при клике на ссылку
         const navLinks = this.nav.querySelectorAll('.nav__link');
         navLinks.forEach(link => {
             link.addEventListener('click', () => this.closeMenu());
         });
 
-        // Закрытие меню при ресайзе окна (на больших экранах)
         window.addEventListener('resize', () => {
             if (window.innerWidth >= 768 && this.isOpen) {
                 this.closeMenu();
@@ -48,7 +46,6 @@ class MobileMenu {
     }
 }
 
-// Инициализация при загрузке DOM
 document.addEventListener('DOMContentLoaded', () => {
     new MobileMenu();
 });

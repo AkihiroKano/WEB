@@ -1,3 +1,3 @@
-import "../sass/style.scss";
-import "./menu.js"
-import "./swiper.js"
+import "../sass/index.scss";
+import "./menu.js";
+import "./swiper.js";
