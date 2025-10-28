@@ -1,0 +1,27 @@
+.map {
+    padding-bottom: 80px;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.responsive-map-iframe {
+    width: 340px;
+    height: 256px;
+
+    @media (min-width: 768px) {
+        width: 663px;
+        height: 400px;
+    }
+
+    @media (min-width: 1200px) {
+        height: 500px;
+    }
+
+    @media (min-width: 1920px) {
+        width: 750px;
+        height: 550px;
+    }
+}
