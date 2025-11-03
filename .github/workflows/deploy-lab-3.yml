@@ -3,8 +3,6 @@ name: Deploy Lab 3 to GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'lab-3/**'
 
 jobs:
   build-and-deploy:

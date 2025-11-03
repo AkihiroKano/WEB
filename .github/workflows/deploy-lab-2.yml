@@ -3,8 +3,6 @@ name: Deploy Lab 2 to GitHub Pages
 on:
   push:
     branches: [ main ]
-    paths:
-      - 'lab-2/**'
 
 jobs:
   deploy:
@@ -27,7 +25,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './lab-2'    # Просто загружаем всю папку lab-2
+        path: './lab-2'
         
     - name: Deploy to GitHub Pages
       id: deployment
